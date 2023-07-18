@@ -1,0 +1,35 @@
+import sys
+class customer:
+    '''customer operations in bank'''
+    bankname="deepthi's bank"
+    def __init__(self,name,balance=25):
+        self.name=name
+        self.balance=balance
+    def deposit(self,amt):
+        self.balance=self.balance+amt
+        print("then your balance after deposit is",self.balance)
+    def withdraw(self,amt):
+        if amt>self.balance:
+            print("You entered more amount which is not available in your account")
+            sys.exit()
+        self.balance=self.balance-amt
+        print("then your balance after withdraw is",self.balance)
+print("welocome to ",customer.bankname)
+name=input("enter the account holders name:")
+c1=customer(name)
+while True:
+    print("options are :")
+    print("w-withdrawl\nd-deposit\ne-exit")
+    option=input("choose the option you want")
+    if option.lower()=='d':
+        amt=float(input("enter the amount u want to deposit:"))
+        c1.deposit(amt)
+    elif option.lower()=='w':
+        amt=float(input("enter the amount u want to deposit:"))
+        c1.withdraw(amt)
+    elif option.lower()=='e':
+        print("thank you")
+        sys.exit() 
+    else:
+        print("you entered invalid option:")
+        print("please choose the correct option")
